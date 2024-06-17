@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VRSBench">
+  <meta name="keywords" content="VRSBench, vision-language, remote sensing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VRSBench</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> -->
+
+  <meta name="google-site-verification" content="6lbYN1vX7A4sD8SrVniq84UEKyEUSBgxeP7d3FjuuK0" />
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- <link rel="icon" href="./static/images/icon.png"> -->
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  </head>
+
+  <style>
+
+    #main{
+        position: relative;;
+        width: 1200px;
+    }
+
+    .box{
+        float: left;
+        padding: 15px 0 0 15px;
+/*        background-color: red;*/
+    }
+
+    .pic{
+        width: 500px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .pic img{
+        width: 500px;
+    }
+
+  </style>
+
+
+
+  <body>
+
+<script>
+  window.addEventListener('load', function() {
+    const urls = [
+      'https://876a8d3e814b8c3a8b.gradio.live',
+      'https://a51cb1bdf92ad731d6.gradio.live',
+    ];
+    const randomIndex = Math.floor(Math.random() * urls.length);
+    const randomURL = urls[randomIndex];
+    document.getElementById('randomLink').href = randomURL;
+  });
+</script>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VRSBench:</h1>
+          <h2 class="title is-2 publication-title">A Versatile Vision-Language Benchmark Dataset for Remote Sensing Image Understanding</h2>
+          <div class="is-size-5">
+            <span class="author-block">
+              <a href="https://lx709.github.io/" style="color:#008AD7;font-weight:normal;">Xiang Li</a>,</span>
+            <span class="author-block">
+                <a href="https://dingjiansw101.github.io//" style="color:#008AD7;font-weight:normal;">Jian Ding
+                </a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://www.mohamed-elhoseiny.com/" style="color:#008AD7;font-weight:normal;">Mohamed Elhoseiny</a>
+            </span>
+            
+          </div>
+
+          <br>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> King Abdullah University of Science and Technology</span>
+            <!-- <span class="author-block"><b style="color:#F2A900; font-weight:normal">&#x25B6 </b>Meta AI Research</span> -->
+            <!-- <span class="author-block"><b style="color:#00A4EF; font-weight:normal">&#x25B6 </b>Microsoft Research, Redmond; </span> -->
+            <!-- <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b>Microsoft Cloud & AI </span> -->
+          </div>
+
+          <br>
+         <!--  <div class="is-size-5 publication-authors">
+            <span class="author-block"><b style="color:#e08ba0; font-weight:normal"> <b>In CVPR2023</b> </b></span>
+          </div> -->
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://github.com/lx709/VRSBench" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+              <span class="link-block">
+                <a href="https://github.com/lx709/VRSBench" target="_blank" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              
+              <span class="link-block">
+                      <a href="https://huggingface.co/datasets/xiang709/VRSBench" target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        🤗
+                      </span>
+                      <span>Space</span>
+                    </a>
+                  </span>
+              
+              
+              <!-- <span class="link-block">
+                <a id="randomLink" href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-play"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+              
+              <span class="link-block">
+                <a href="https://youtu.be/atFCwV2hSY4" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                  </a>
+              </span> -->
+              
+              <!-- <span class="link-block">
+                <a href="https://huggingface.co/datasets/Vision-CAIR/cc_sbu_align" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span> -->
+              
+              <!-- <span class="link-block">
+                <a href="https://huggingface.co/Vision-CAIR/MiniGPT-4" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-laugh"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span> -->
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+
+<!-- <script>
+  window.addEventListener('load', function() {
+    const urls = [
+      'https://876a8d3e814b8c3a8b.gradio.live',
+      'https://a51cb1bdf92ad731d6.gradio.live',
+    ];
+    const randomIndex = Math.floor(Math.random() * urls.length);
+    const randomURL = urls[randomIndex];
+    const iframe = document.getElementById('gradio');
+    iframe.setAttribute('src', randomURL);
+  });
+</script>
+
+<div class="columns is-centered">
+<iframe id="gradio" width="70%" height="1000">
+  <p>Gradio.</p>
+</iframe>
+</div>   -->
+
+<!-- <script
+  type="module"
+  src="https://gradio.s3-us-west-2.amazonaws.com/3.47.1/gradio.js"
+></script>
+<gradio-app src="https://7f2eb30890158a1082.gradio.live"></gradio-app>
+
+ -->
+
+<!-- <link rel="stylesheet" href="js/ft-carousel.css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/ft-carousel.min.js"></script>
+<script type="text/javascript">
+  $("#carousel_1").FtCarousel();
+
+  $("#carousel_2").FtCarousel({
+    index: 1,
+    auto: false
+  });
+
+  $("#carousel_3").FtCarousel({
+    index: 0,
+    auto: true,
+    time: 3000,
+    indicators: false,
+    buttons: true
+  });
+</script> -->
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="example">
+      <div class="ft-carousel" id="carousel_1">
+        <ul class="carousel-inner"> -->
+          <!-- <li class="carousel-item"><img src="demos/wop_2.png" /></li>
+          <li class="carousel-item"><img src="demos/cook_1.png" /></li>
+          <li class="carousel-item"><img src="demos/fix_1.png" /></li>
+          <li class="carousel-item"><img src="demos/rhyme_1.png" /></li> -->
+       <!--    <li class="carousel-item"><img src="img/a1.jpg" /></li>
+      <li class="carousel-item"><img src="img/a2.jpg" /></li>
+      <li class="carousel-item"><img src="img/a3.jpg" /></li>
+      <li class="carousel-item"><img src="img/a4.jpg" /></li>
+      <li class="carousel-item"><img src="img/a5.jpg" /></li>
+      <li class="carousel-item"><img src="img/a6.jpg" /></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- 
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="demos/wop_2.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        </h2>
+      </div>
+      <div class="item">
+        <img src="demos/cook_1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        </h2>
+      </div>
+      <div class="item">
+        <img src="demos/fix_1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+       </h2>
+     </div>
+     <div class="item">
+      <img src="demos/rhyme_1.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+      </h2>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+ -->
+
+<link rel="stylesheet" type="text/css" href="js/simple_style.css" />
+<script type="text/javascript" src="js/simple_swiper.js"></script>
+
+
+<!-- <div class="app">
+  <div id="swiper-demo" class="simple-swiper-container">
+    <a id="prev" class="btn btn-prev"></a>
+    <a id="next" class="btn btn-next"></a>
+    <div class="pagination"></div>
+  </div>
+</div>
+<p id="index"></p>
+
+<script type="text/javascript">
+  new SimSwiper("#swiper-demo", {
+    autoplay: 4000,
+    duration: 300,
+    easing: 'ease',
+    button: {
+      prev: "#prev", // 前进后退按钮
+      next: "#next"
+    },
+    pagination: {
+      el: '.pagination',
+      click: true// 是否可以点击
+    },
+    // 轮播图数据
+    data: [{
+      index: 0,
+      href: '#',
+      src: 'demos/wop_2.png'
+    }, {
+      index: 1,
+      href: '#',
+      src: 'demos/cook_1.png'
+    }, {
+      index: 2,
+      href: '#',
+      src: 'demos/fix_1.png'
+    }, {
+      index: 3,
+      href: '#',
+      src: 'demos/rhyme_1.png'
+    }]
+  });
+</script> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce a new benchmark designed to advance the development of general-purpose, large-scale vision-language models for remote sensing images. Although several vision-language datasets in remote sensing have been proposed to pursue this goal, existing datasets are typically tailored to single tasks, lack detailed object information, or suffer from inadequate quality control. Exploring these improvement opportunities,  we present a <b>V</b>ersatile vision-language <b>Bench</b>mark for <b>R</b>emote <b>S</b>ensing image understanding, termed <b>VRSBench</b>. This benchmark comprises 29,614 images, with 29,614 human-verified detailed captions, 52,472 object references, and  123,221 question-answer pairs. It facilitates the training and evaluation of vision-language models across a broad spectrum of remote sensing image understanding tasks. We further evaluated state-of-the-art models on this benchmark for three vision-language tasks: image captioning, visual grounding, and visual question answering. Our work aims to significantly contribute to the development of advanced vision-language models in the field of remote sensing. The data and code can be accessed at https://github.com/lx709/VRSBench.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <br>
+
+    <!-- Paper Model. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">VRSBench Dataset</h2>
+        <div class="content has-text-justified">
+          
+          <ul>
+            VRSBench provides large-scale human-verified annotations that feature several advantages:
+            <li>VRSBench provides a large-scale collection of human-verified, high-quality captions rich in
+              object details.</li>
+            <li>VRSBench offers more realistic object refers in which each referring sentence
+              unambiguously identifies an object among multiple similar ones within the same category.</li>
+            <li>VRSBench features a diverse collection of open-set question-answer pairs in natural language.</li>
+
+          </ul>
+        </div>  
+        <img id="model" width="80%" src="images/dataset_compare.png">
+        <h3 class="subtitle has-text-centered">
+          <p style="font-family:Times New Roman">
+              <b>Table 1. Comparison between existing remote sensing vision-language datasets and our VRSBench dataset. Values in parentheses in the Caption column indicate the average word length of captions. OBB denotes orientated bounding box. A small portion of question-answer pairs in RSIVQA areannotated by human annotators.</b>
+          </p>
+        </h3>   
+        <br>
+        <br>
+
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <img id="model" width="80%" src="images/fig_stat_cap_1.png">
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <img id="model" width="80%" src="images/fig_stat_cap_2.png">
+        <h3 width="60%">
+          <p style="font-family:Times New Roman"><b>Figure 2. Statistics of the VRSBench caption dataset. (a) Probability density function (PDF) of caption length. (b) PDF of the sentence number. (c) Summative statistics. (d) Word cloud of top-50 words.</b></p>
+        </h3>   
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <img id="model" width="80%" src="images/fig_stat_ref_1.png">
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <img id="model" width="80%" src="images/fig_stat_ref_2.png">
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <img id="model" width="80%" src="images/fig_stat_ref_3.png">
+        <h3 width="60%">
+          <p style="font-family:Times New Roman"><b>Figure 3. Statistics of object referring sentences of <b>VRSBench</b> dataset. (a) Distribution of the 10 most frequent object categories. (b) Distribution of the word length of referring sentences. (c) Distribution of object size. (d)Word cloud of the top 50 words in referring sentences. (e) Distribution of unique/non-unique objects in each category.</b></p>
+        </h3>   
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Image Captioning Results</h2>
+    </div>
+  </div>
+</section>
+
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-six-fifths">
+    <img id="model" width="50%" src="images/fig_rst_cap.png">
+    <h3 width="60%">
+      <p style="font-family:Times New Roman"><b>Table 2. Detailed image caption performance on VRSBench dataset. Avg_L denotes the average word length of generated captions.</b></p>
+    </h3>   
+  </div>
+</div>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-six-fifths">
+    <img id="model" width="50%" src="images/fig_cap_1.png">
+    <h3 width="60%">
+      <p style="font-family:Times New Roman"><b>Figure 4. Selected image caption results.</b></p>
+    </h3>   
+  </div>
+</div>
+
+
+
+<section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Visual Grounding Results</h2>
+    </div>
+  </div>
+</section>
+
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-six-fifths">
+    <img id="model" width="50%" src="images/fig_rst_ref.png">
+    <h3 width="60%">
+      <p style="font-family:Times New Roman"><b>Table 3. Visual grounding performance on VRSBench dataset.</b></p>
+    </h3>   
+  </div>
+</div>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-six-fifths">
+    <img id="model" width="50%" src="images/fig_ref_1.png">
+    <h3 width="60%">
+      <p style="font-family:Times New Roman"><b>Figure 5. Selected visual grounding results.</b></p>
+    </h3>   
+  </div>
+</div>
+</section>
+
+
+<section class="section">
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-six-fifths">
+      <h2 class="title is-3">Visual Question-Answering Results</h2>
+    </div>
+  </div>
+</section>
+
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-six-fifths">
+    <img id="model" width="50%" src="images/fig_rst_qa.png">
+    <h3 width="60%">
+      <p style="font-family:Times New Roman"><b>Table 4. Visual question-answering performance on VRSBench dataset.</b></p>
+    </h3>   
+  </div>
+</div>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-six-fifths">
+    <img id="model" width="50%" src="images/fig_qa.png">
+    <h3 width="60%">
+      <p style="font-family:Times New Roman"><b>Figure 6. Selected visual question-answering results.</b></p>
+    </h3>   
+  </div>
+</div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@article{li2024vrsbench,
+  title={VRSBench: A Versatile Vision-Language Benchmark Dataset for Remote Sensing Image Understanding},
+  author={Xiang Li, Jian Ding, and Mohamed Elhoseiny},
+  journal={arXiv:xxx},
+  year={2024}
+}
+</code></pre>
+  </div>
+</section>
+
+
+<section class="section" id="Acknowledgement">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgement</h2>
+    <p>
+      This website is adapted from <a
+      href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license"
+                                          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+      Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+  </div>
+</section>
+
+
+</body>
+
+</html>
